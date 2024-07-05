@@ -16,6 +16,7 @@ namespace BusITLAApp.Data.Daos
         public Dao_Ticket(BusITLAAppContext context) 
         { 
             this.context = context;
+            CargarDatos();
         }
         public Ticket GetTicket(int ticketId)
         {
@@ -53,6 +54,36 @@ namespace BusITLAApp.Data.Daos
             }
             this.context.Ticket.Update(ticket);
             this.context.SaveChanges();
+        }
+
+        private void CargarDatos()
+        {
+            if(!this.context.Ticket.Any())
+            {
+                List<Ticket> asientos = new List<Ticket>()
+                {
+                    new Ticket()
+                    {
+                        Administrador= 1, Budget = 200, Id = 1, Name = "Ticket 1", StartTime = DateTime.Now
+                    },
+                    new Ticket()
+                    {
+                        Administrador= 1, Budget = 500, Id = 2, Name = "Ticket 2", StartTime = DateTime.Now
+                    },
+                    new Ticket()
+                    {
+                        Administrador= 1, Budget = 800, Id = 3, Name = "Ticket 3", StartTime = DateTime.Now
+                    },
+                    new Ticket()
+                    {
+                        Administrador= 1, Budget = 300, Id = 4, Name = "Ticket 4", StartTime = DateTime.Now
+                    }
+                };
+
+                this.context.Ticket.AddRange(asientos);
+                this.context.SaveChanges();
+
+            }
         }
     }
 }
