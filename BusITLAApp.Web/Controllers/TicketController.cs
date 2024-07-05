@@ -1,4 +1,5 @@
-﻿using BusITLAApp.Data.Interfaces;
+﻿using BusITLAApp.Data.Entities;
+using BusITLAApp.Data.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,8 @@ namespace BusITLAApp.Web.Controllers
         // GET: TicketController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var ticket = this.daoTicket.GetTicket(id);
+            return View(ticket);
         }
 
         // GET: TicketController/Create
@@ -33,10 +35,11 @@ namespace BusITLAApp.Web.Controllers
         // POST: TicketController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Ticket ticket)
         {
             try
             {
+                this.daoTicket.SaveTicket(ticket);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -48,37 +51,18 @@ namespace BusITLAApp.Web.Controllers
         // GET: TicketController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var ticket = this.daoTicket.GetTicket(id);
+            return View(ticket);
         }
 
         // POST: TicketController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Ticket ticket)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TicketController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: TicketController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
+                this.daoTicket.UpdateTicket(ticket);
                 return RedirectToAction(nameof(Index));
             }
             catch
