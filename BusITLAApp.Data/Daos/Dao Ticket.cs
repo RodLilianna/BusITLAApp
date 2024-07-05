@@ -48,6 +48,13 @@ namespace BusITLAApp.Data.Daos
 
         public void UpdateTicket(Ticket ticket)
         {
+            if (ticket is null)
+            {
+                throw new ArgumentNullException("El ticket no puede ser nulo");
+            }
+
+            ArgumentNullException.ThrowIfNull(ticket.Name, "El nombre de la ruta es requerido.");
+
             if (ticket.Budget <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(ticket.Budget), "El Budget no puede ser negativo o cero.");
