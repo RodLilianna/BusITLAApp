@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusITLAApp.Data\BusITLAApp.Data.csproj" />
+  </ItemGroup>
+
 </Project>
