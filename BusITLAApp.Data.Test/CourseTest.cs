@@ -17,7 +17,7 @@ namespace BusITLAApp.Data.Test
                 {
                     Id = 1,
                     Title = "Course 1",
-                    DepartmentId = 1,
+                    TicketId = 1,
                     Description = "Description 1",
                     Credits = 3
                 },
@@ -25,7 +25,7 @@ namespace BusITLAApp.Data.Test
                 {
                     Id = 2,
                     Title = "Course 2",
-                    DepartmentId = 2,
+                    TicketId = 2,
                     Description = "Description 2",
                     Credits = 4
                 },
@@ -33,7 +33,7 @@ namespace BusITLAApp.Data.Test
                 {
                     Id = 3,
                     Title = "Course 3",
-                    DepartmentId = 3,
+                    TicketId = 3,
                     Description = "Description 3",
                     Credits = 5
                 }
@@ -85,7 +85,7 @@ namespace BusITLAApp.Data.Test
         {
             foreach (var course in _fakeCourses)
             {
-                Assert.That(course.DepartmentId, Is.GreaterThan(0), "The DepartmentId should be greater than 0.");
+                Assert.That(course.TicketId, Is.GreaterThan(0), "The DepartmentId should be greater than 0.");
             }
         }
 
