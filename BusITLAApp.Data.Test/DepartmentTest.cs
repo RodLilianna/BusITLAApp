@@ -7,14 +7,14 @@ namespace BusITLAApp.Data.Test
     [TestFixture]
     public class DepartmentTests
     {
-        private List<Department> _fakeResults;
+        private List<Ticket> _fakeResults;
 
         [SetUp]
         public void SetUp()
         {
-            _fakeResults = new List<Department>
+            _fakeResults = new List<Ticket>
             {
-                new Department
+                new Ticket
                 {
                     Id = 1,
                     Name = "Test 1",
@@ -22,7 +22,7 @@ namespace BusITLAApp.Data.Test
                     StartTime = DateTime.Now,
                     Budget = 5
                 },
-                new Department
+                new Ticket
                 {
                     Id = 2,
                     Name = "Test 2",
@@ -30,7 +30,7 @@ namespace BusITLAApp.Data.Test
                     StartTime = DateTime.Now,
                     Budget = 4
                 },
-                new Department
+                new Ticket
                 {
                     Id = 3,
                     Name = "Test 3",
