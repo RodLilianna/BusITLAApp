@@ -2,7 +2,7 @@
 
 namespace BusITLAApp.Data.Entities
 {
-    public class Department
+    public class Ticket
     {
         public int Id { get; set; }
         public string? Name { get; set; }

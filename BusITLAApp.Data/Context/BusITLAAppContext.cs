@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BusITLAApp.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,12 @@ namespace BusITLAApp.Data.Context
 {
     public class BusITLAAppContext: DbContext
     {
-        public BusITLAAppContext()
+        public BusITLAAppContext(DbContextOptions<BusITLAAppContext> options) : base(options)
         {
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseInMemoryDatabase("DbBusITLAApp");
-        }
+
+        public DbSet<Ticket> Ticket { get; set; }
     }
 }
